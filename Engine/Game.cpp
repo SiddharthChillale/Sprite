@@ -38,9 +38,26 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	const float dt = ft.Mark();
+
+	int nAcross = surf.GetWidth()/ spriteWidth;
+	
+	xst = (m % nAcross )* spriteWidth;
+	
+	timeCounter += dt;
+	if (timeCounter >= 0.2f) {
+		timeCounter -= 0.2f;
+		m++;
+	}
+
+	mouse_x = wnd.mouse.GetPosX();
+	mouse_y = wnd.mouse.GetPosY();
+	
+	
 }
 
 void Game::ComposeFrame()
 {
-	gfx.DrawSprite( 0,0,surf );
+	
+	gfx.DrawSprite(mouse_x, mouse_y, {xst, xst+32, yst, yst+48},Colors::Magenta, surf);
 }
