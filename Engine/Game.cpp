@@ -59,5 +59,5 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	
-	gfx.DrawSprite(mouse_x, mouse_y, {xst, xst+32, yst, yst+48},Colors::Magenta, surf);
+	gfx.DrawSprite(mouse_x, mouse_y, RectI(xst, xst + 32, yst, yst + 48 ),gfx.GetScreenRect(), surf);
 }
